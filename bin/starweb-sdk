@@ -1,0 +1,30 @@
+#!/usr/bin/env php
+<?php
+
+use Starweb\Sdk\Examples\Command\SdkCommand;
+use Starweb\Sdk\Examples\SdkFactory;
+use Starweb\Sdk\Examples\ConfigurationProvider;
+use Symfony\Component\Console\Application;
+
+define('ROOT_PATH', dirname(__DIR__));
+chdir(ROOT_PATH);
+
+require 'vendor/autoload.php';
+
+define('CONSOLE_PATH', __FILE__);
+
+$dotenv = Dotenv\Dotenv::create(ROOT_PATH);
+$dotenv->load();
+
+$application = new Application('starweb-sdk-examples');
+$application->setCatchExceptions(false);
+$application->setAutoExit(false);
+
+$configurationProvider = new ConfigurationProvider();
+$credentials = $configurationProvider->getCredentials();
+$baseUrl = $configurationProvider->getBaseUrl();
+
+$sdkFactory = new SdkFactory();
+$sdk = $sdkFactory->create($credentials, $baseUrl);
+$application->add(new SdkCommand($sdk));
+$application->run();

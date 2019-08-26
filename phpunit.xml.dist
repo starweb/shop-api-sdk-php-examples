@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap="vendor/autoload.php" colors="true" stopOnError="true" stopOnFailure="true">
+    <testsuites>
+        <testsuite name="Starweb SDK Examples Test Suite">
+            <directory suffix=".php">tests/</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">src/</directory>
+        </whitelist>
+    </filter>
+    <php>
+        <env name="BASE_URL" value="https://foo.test"/>
+        <env name="CLIENT_ID" value="foo"/>
+        <env name="CLIENT_SECRET" value="bar"/>
+    </php>
+</phpunit>

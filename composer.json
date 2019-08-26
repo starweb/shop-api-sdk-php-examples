@@ -1,0 +1,35 @@
+{
+  "name": "starweb/shop-api-sdk-examples",
+  "description": "Examples for the Starweb Shop API Software Development Kit for PHP",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Starweb AB",
+      "email": "api@starweb.se"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=7.3",
+    "php-http/guzzle6-adapter": "^1.0",
+    "starweb/shop-api-sdk": "dev-master",
+    "vlucas/phpdotenv": "^3.4",
+    "symfony/console": "^4.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.3",
+    "php-http/mock-client": "^1.3",
+    "nyholm/psr7": "^1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Starweb\\Sdk\\Examples\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Starweb\\Sdk\\Examples\\Test\\": "tests"
+    }
+  }
+}
